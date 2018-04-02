@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>xchange</title>
+    <meta charset="UTF-8">
+
+    {% load staticfiles %}
+
+    <link href="{% static 'bootstrap-4/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <script href="{% static 'bootstrap-4/js/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+
+    <h3>Welcome to Xchange</h3>
+
+    <form action="{% url 'login_view' %}", method="post">
+        {% csrf_token %}
+        {{ login_form|linebreaks}}
+        <input type="submit", value="Login"/>
+    </form>
+
+    <button><a href="{% url 'signup_view' %}">Sign Up</a></button>
+
+</body>
+</html>
