@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+    {% load staticfiles %}
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3 information">
+            <h4>{{ store_name }}</h4>
+        </div>
+    </div>
+
+    <hr class="hr-line">
+
+    <div class="container-fluid my_categories">
+        {% for my_category in my_categories %}
+            {% if forloop.counter0|divisibleby:3 %}
+                <div class="row"> {% endif %}
+        <div class="card col-md-4">
+            <div class="card-body">
+                <div class="row">
+                    <h4 class="col-md-5"><a href="{% url 'single_category_view' cat_id=my_category.cat_id %}">
+                        {{ my_category.cat_name }}</a></h4>
+                </div>
+                <div>
+                    <p>{{ my_category.cat_descr }}</p>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+
+{% block extra_script %}
+    <script>
+    </script>
+{% endblock %}

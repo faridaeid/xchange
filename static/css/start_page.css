@@ -1,0 +1,101 @@
+body {
+    background-color: #333333;
+}
+
+.login {
+    margin-top: 90px;
+}
+
+.title {
+
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 15px;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.panel-login {
+
+    margin: 10px;
+    border-color: #cccccc;
+    box-shadow: 0px 1px 1px 1px #cccccc;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.panel-login .panel-heading {
+
+    border-color: #ffffff;
+    text-align: center;
+    padding: 5px;
+
+}
+
+.panel-login .panel-heading a {
+
+    color: #33333350;
+    font-weight: bold;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.panel-login .panel-heading a.active {
+
+    color: #333333;
+
+}
+
+.panel-login .panel-heading hr {
+
+    margin-top: 10px;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+
+.panel-login input {
+
+    border: 0.5px solid gray;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+}
+
+.btn-login {
+
+    background-color: #333333;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: 10px;
+    font-size: 12px;
+    height: 45px;
+    vert-align: middle;
+}
+
+.form-check {
+
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+}
+
+#login_form_id {
+
+    display: block;
+}
+
+#signup_form_id {
+
+    display: none;
+}

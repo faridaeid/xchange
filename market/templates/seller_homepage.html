@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+    {% load staticfiles %}
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-4 offset-md-4 information">
+            <div class="row">
+                <h4 class="col-md-10 offset-md-1">{{ request.session.store_name }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <hr class="hr-line">
+
+    <div class="row">
+        <button type="button" data-toggle="modal" data-target="#categModal"
+                class="btn btn-dark col-md-2 offset-md-5">
+            Add Category
+            <span class="fas fa-plus-circle" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <div class="container-fluid my_categories mt-4">
+        {% for my_category in my_categories %}
+            {% if forloop.counter0|divisibleby:3 %}
+                <div class="row"> {% endif %}
+        <div class="card col-md-4">
+            <div class="card-body">
+                <div class="row">
+                    <h4 class="col-md-5">{{ my_category.cat_name }}</h4>
+                    <form action="{% url 'category_edit_view' cat_id=my_category.cat_id %}" method="get"
+                          class="col-md-1 offset-md-3 mr-2">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-edit" data-toggle="modal" data-target="#addCategModal">
+                            <span class="fas fa-pencil-alt" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                    <form action="{% url 'delete_category_view' cat_id=my_category.cat_id %}" method="post"
+                          class="col-md-1 ml-2">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">
+                            <span class="fas fa-trash" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                </div>
+                <div>
+                    <p>{{ my_category.cat_descr }}</p>
+                </div>
+                <a class="custom-link" href="{% url 'category_products_view' cat_id=my_category.cat_id %}">
+                    <strong>Products</strong></a>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="modal fade" id="categModal" tabindex="-1" data-keyboard="false" data-backdrop="static"
+         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title col-md-6" id="exampleModalLabel">
+                        {% if show_edit_modal and show_edit_modal == True %}Edit{% else %}Add{% endif %} Category
+                    </h5>
+                    <button type="button" id="close_modal_btn" class="btn btn-dark">
+                        <span class="fas fa-times-circle"></span>
+                    </button>
+                </div>
+                {% if cat_error and cat_error == True %}
+                    <div class="alert alert-danger">
+                        <strong>Error!</strong> You already have a category with the same name.
+                    </div>
+                {% endif %}
+
+                {% if show_edit_modal and show_edit_modal == True %}
+                    <form method="post">
+                        <div class="modal-body">
+                            {% csrf_token %}
+                            {{ category_form | linebreaks }}
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Update" class="btn btn-dark">
+                        </div>
+                    </form>
+                {% else %}
+                    <form action="{% url 'category_add_view' %}" method="post">
+                        <div class="modal-body">
+                            {% csrf_token %}
+                            {{ category_form | linebreaks }}
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Add" class="btn btn-dark">
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_script %}
+    <script>
+
+        {% if cat_error and cat_error == True or show_edit_modal and show_edit_modal == True %}
+            $(function () {
+                $('#categModal').modal('show');
+            });
+        {% endif %}
+
+        $('#close_modal_btn').click(function () {
+            $('#categModal').modal('hide');
+            return false;
+        });
+
+
+    </script>
+{% endblock %}

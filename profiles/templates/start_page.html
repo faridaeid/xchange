@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>xchange</title>
+    <meta charset="UTF-8">
+
+    {% load staticfiles %}
+
+    <link href="{% static 'bootstrap-4/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/start_page.css' %}" rel="stylesheet"/>
+    <script href="{% static 'bootstrap-4/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jquery-3.3.1.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/login.js' %}" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="container login">
+    {% if error_mess %}
+        <div class="alert alert-danger">
+            <strong>Error!</strong> {{ error_mess }}
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="panel panel-login">
+                <div class="panel-heading">
+                    <div class='row'>
+                        <div class="col-sm-6">
+                            <a href="#" class="active" id="login_tab">Login</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="#" id="signup_tab">Sign Up</a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+                <form action="{% url 'login_view' %}" , method="post" id="login_form_id">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            {% csrf_token %}
+                            {{ login_form|linebreaks }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <input type="submit" , value="LOGIN" name='login_btn' class="btn btn-login"/>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="{% url 'signup_view' %}" , method="post" id="signup_form_id">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            {% csrf_token %}
+                            {{ signup_form.first_name }}
+                            {{ signup_form.last_name }}
+                            {{ signup_form.email_address.errors }}
+                            {{ signup_form.email_address }}
+                            {{ signup_form.username }}
+                            {{ signup_form.password }}
+                            <div class="row">
+                                {% for choice in signup_form.account_type.field.choices %}
+                                    <div class="form-check col-md-5 offset-md-1" req>
+                                        <input class="form-check-input col-md-6"
+                                               type="checkbox" , name="account_type" value="{{ choice.0 }}">
+                                        <label class="form-check-label col-md-6">{{ choice.1 }}</label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <input type="submit" , value="SIGNUP" class="btn btn-login"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    {% if signup_error and signup_error == True %}
+        $(function () {
+            $("#signup_form_id").delay(0).fadeIn(0);
+            $("#login_form_id").fadeOut(0);
+            $("#login_tab").removeClass('active');
+            $('#signup_tab').addClass('active');
+        });
+    {% endif %}
+</script>
+</html>

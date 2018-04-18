@@ -1,0 +1,164 @@
+h3 {
+
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 15px;
+}
+.information {
+
+    letter-spacing: 3px;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.information p {
+    font-size: 12px;
+    margin-bottom: 2px;
+    color: gray;
+    letter-spacing: 2px;
+}
+
+.navbar {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+.btn-dark {
+    background-color: #333333;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.btn-add-cart {
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 11px;
+}
+
+.btn-edit {
+    background-color: #2d862d;
+}
+
+.fa-plus-circle,
+.fa-sign-out-alt,
+.fa-edit,
+.fa-pencil-alt,
+.fa-trash,
+.fa-times-circle,
+.fa-shopping-cart,
+.fa-list-alt,
+.fa-history{
+    color: #ffffff;
+}
+
+.fa-exclamation-triangle {
+    color: red;
+    vertical-align: middle;
+}
+
+.hr-line {
+
+    margin-top: 10px;
+    height: 0.5px;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+
+.modal-body input,
+.custom-select {
+
+    border: 0.5px solid gray;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+}
+
+
+.modal-header h5 {
+    letter-spacing: 2px;
+}
+
+.card {
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+.card-body h4 {
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.products-cards h4 {
+    font-size: 15px;
+}
+
+.card-body p {
+    color: #a6a6a6;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.products-cards p {
+    font-size: 11px;
+    margin: 0;
+}
+
+.custom-link {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.container-body {
+    margin-top: 20px;
+}
+
+.search-bar,
+.search-bar-div input{
+
+    border: 0.5px solid gray;
+    padding: 10px;
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+}
+
+.search-bar-div {
+    padding: 0;
+}
+
+.search-table {
+    text-align: center;
+    font-size: 12px;
+}
+
+.search-table thead {
+    letter-spacing: 2px;
+    font-size: 12px;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.stock_in {
+    color: #00b300;
+}
+
+.stock_out {
+    color: #ff3300;
+}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+    {% load staticfiles %}
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3 information">
+            <h4>{{ category_name }}</h4>
+        </div>
+    </div>
+
+    <hr class="hr-line">
+
+    {% if add_type == -1 %}
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Error!</strong> Product already added to cart
+        </div>
+    {% elif add_type == 1 %}
+        <div class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> Product added to cart
+        </div>
+    {% endif %}
+
+    <div class="container-fluid container-body">
+        {% for my_product in my_products %}
+            {% if forloop.counter0|divisibleby:4 %}
+                <div class="row"> {% endif %}
+        <div class="card col-md-3">
+            <div class="card-body products-cards">
+                <h4>{{ my_product.product_name }}</h4>
+                <div>
+                    <p>{{ my_product.product_specs }}</p>
+                    <p>{{ my_product.product_price }} L.E</p>
+                    <p>{% if my_product.number_in_stock == 0 %}Out of stock{% else %}In Stock{% endif %}</p>
+                </div>
+                <div class="row">
+                    <form method="post" class="col-md-7 offset-5 mt-4">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-add-cart col-md-12"
+                        {% if my_product.number_in_stock == 0 %}disabled{% endif %}>Add To
+                            <span class="fas fa-shopping-cart"></span>
+                        </button>
+                        <input type="hidden" name="product_id" value="{{ my_product.product_id }}">
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 or forloop.last %}</div>{% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{% block extra_script %}
+{% endblock %}

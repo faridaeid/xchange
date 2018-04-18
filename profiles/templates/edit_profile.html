@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+    {% load staticfiles %}
+    <link href="{% static 'css/edit_profile.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" type="text/css"/>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="panel-login">
+                    <div class="panel-heading">
+                        Update Your Profile
+                    </div>
+                    <form action="{% url 'edit_profile_view' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                {{ form.first_name }}
+                                {{ form.last_name }}
+                                {{ form.email_address }}
+                                {{ form.password }}
+                            </div>
+                        </div>
+                        <input type="submit", name="update_btn" value="Update" class="btn btn-dark"/>
+                    </form>
+                </div>
+
+                {% if request.session.account_type == 'S' or request.session.account_type == 'SB'%}
+                <div class="panel-login">
+                    <form action="{% url 'edit_profile_view' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 offset-md-1">
+                                {{ store_form.store_name }}
+                            </div>
+                            <input type="submit", name="store_name_btn" value="Change Store Name" class="col-md-4 btn btn-dark"/>
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

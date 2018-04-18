@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+    {% load staticfiles %}
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3 information">
+            <h4>{{ category_name }}</h4>
+        </div>
+    </div>
+
+    <hr class="hr-line">
+
+    <div class="row">
+        <button type="button" data-toggle="modal" data-target="#productModal"
+                class="btn btn-dark col-md-2 offset-md-5 mr-2">
+            Add Product
+            <span class="fas fa-plus-circle" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <div class="container-fluid container-body">
+        {% for my_product in my_products %}
+            {% if forloop.counter0|divisibleby:4 %}
+                <div class="row"> {% endif %}
+        <div class="card col-md-3">
+            <div class="card-body products-cards">
+                <h4>{{ my_product.product_name }}</h4>
+                <div>
+                    <p>{{ my_product.product_specs }}</p>
+                    <p>{{ my_product.product_price }} L.E</p>
+                    <p><strong>{{ my_product.number_in_stock }} left</strong></p>
+
+                </div>
+                <div class="row">
+                    <form action="./edit/{{ my_product.product_id }}" method="get"
+                          class="col-md-2 offset-md-7">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-edit" data-toggle="modal" data-target="#productModal">
+                            <span class="fas fa-pencil-alt" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                    <form action="./delete/{{ my_product.product_id }}" method="post"
+                          class="col-md-2">
+                        {% csrf_token %}
+
+                        <button type="submit" class="btn btn-danger">
+                            <span class="fas fa-trash" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 or forloop.last %}</div>{% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="modal fade" id="productModal" tabindex="-1" data-keyboard="false" data-backdrop="static"
+         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title col-md-6" id="exampleModalLabel">
+                        {% if show_edit_modal and show_edit_modal == True %}Edit{% else %}Add{% endif %} Product
+                    </h5>
+                    <button type="button" id="close_modal_btn" class="btn btn-dark">
+                        <span class="fas fa-times-circle"></span>
+                    </button>
+                </div>
+                {% if modal_error and modal_error == True %}
+                    <div class="alert alert-danger">
+                        <strong>Error!</strong> You already have a product with the same name under the same category.
+                    </div>
+                {% endif %}
+
+                {% if show_edit_modal and show_edit_modal == True %}
+                    <form method="post">
+                        <div class="modal-body">
+                            {% csrf_token %}
+                            {{ product_form | linebreaks }}
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Update" class="btn btn-dark">
+                        </div>
+                    </form>
+                {% else %}
+                    <form action="./add" method="post">
+                        <div class="modal-body">
+                            {% csrf_token %}
+                            {{ product_form | linebreaks }}
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Add" class="btn btn-dark">
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extra_script %}
+    <script>
+        {% if modal_error and modal_error == Trueor or show_edit_modal and show_edit_modal == True %}
+            $(function () {
+                $('#productModal').modal('show');
+            });
+        {% endif %}
+
+        $('#close_modal_btn').click(function () {
+            $('#productModal').modal('hide');
+            return false;
+        });
+
+    </script>
+{% endblock %}

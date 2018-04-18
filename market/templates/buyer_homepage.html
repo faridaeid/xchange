@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+    {% load staticfiles %}
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+
+    <form action="{% url 'search_view' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class=" search-bar-div col-md-3 offset-md-3">
+                {{ search_form.search_item }}
+            </div>
+            <select name="search_filter" class="search-bar col-md-2 dropdown-toggle" data-toggle="dropdown">
+                {% for choice in search_form.search_filter.field.choices %}
+                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                {% endfor %}
+            </select>
+            <input class="search-bar btn btn-dark col-md-1" type="submit" value="Search"/>
+        </div>
+    </form>
+
+    {% if no_results and no_results == true %}
+        No Results Found
+    {% endif %}
+
+    <div class="container-fluid container-body">
+        {% if categories_result %}
+            <table class="table search-table">
+                <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Store Name</th>
+                    <th>Category Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in categories_result %}
+                    <tr>
+                        <td><a href="{% url 'single_category_view' cat_id=category.4 %}">{{ category.0 }}</a></td>
+                        <td><a href="{% url 'single_store_view' store_id=category.3 %}">{{ category.1 }}</a></td>
+                        <td>{{ category.2 }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        {% if store_result %}
+            <table class="table search-table">
+                <thead>
+                <tr>
+                    <th>Store Name</th>
+                    <th>Store Creation Date</th>
+                    <th>Owner Username</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for store in store_result %}
+                    <tr>
+                        <td><a href="{% url 'single_store_view' store_id=store.3 %}">{{ store.0 }}</a></td>
+                        <td>{{ store.1 }}</td>
+                        <td>{{ store.2 }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        {% if product_result %}
+            <table class="table search-table">
+                <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Specs</th>
+                    <th>Product Price</th>
+                    <th>Status</th>
+                    <th>Store Name</th>
+                    <th>Category Name</th>
+                </tr>
+                </thead>
+                <tbody valign="middle">
+                {% for product in product_result %}
+                    <tr>
+                        <td>{{ product.0 }}</td>
+                        <td>{{ product.1 }}</td>
+                        <td>{{ product.2 }}</td>
+                        {% if product.3 == 0 %}
+                            <td class="stock_out"><strong>Out of Stock</strong></td>
+                        {% else %}
+                            <td class="stock_in"><strong>In Stock</strong></td>
+                        {% endif %}
+                        <td>{{ product.4 }}</td>
+                        <td>{{ product.5 }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block extra_script %}
+    <script>
+    </script>
+{% endblock %}

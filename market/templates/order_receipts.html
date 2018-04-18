@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+    {% load staticfiles %}
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6 information">
+            <h4>Your Orders Receipts</h4>
+        </div>
+    </div>
+
+    <div class="container-fluid container-body">
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <table class="table search-table">
+                    <thead>
+                    <tr>
+                        <th>Item Nmae</th>
+                        <th>Order Date</th>
+                        <th>Buyer Username</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in orders_result %}
+                        <tr>
+                            <td>{{ order.0 }}</td>
+                            <td>{{ order.1 }}</td>
+                            <td>{{ order.2 }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extra_script %}
+    <script>
+    </script>
+{% endblock %}

@@ -1,0 +1,37 @@
+.panel-login {
+
+    border-color: #cccccc;
+    box-shadow: 0px 1px 1px 1px #cccccc;
+    background-color: #ffffffaa;
+    padding: 10px;
+}
+
+.panel-login .panel-heading {
+
+    border-color: #ffffffaa;
+    text-align: center;
+    padding: 5px;
+    letter-spacing: 2px;
+
+}
+
+.panel-login input {
+
+    border: 0.5px solid #333333;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+}
+
+.btn-dark {
+    background-color: #333333;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
