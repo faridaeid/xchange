@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38829ea5-a62f-4fe1-8dff-c5180a5d16ec" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profiles/migrations/0002_auto_20180331_1156.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profiles/templates/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profiles/templates/signup.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/admin.py" afterPath="$PROJECT_DIR$/profiles/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/forms.py" afterPath="$PROJECT_DIR$/profiles/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/profiles/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/models.py" afterPath="$PROJECT_DIR$/profiles/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/views.py" afterPath="$PROJECT_DIR$/profiles/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xchange/settings.py" afterPath="$PROJECT_DIR$/xchange/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xchange/urls.py" afterPath="$PROJECT_DIR$/xchange/urls.py" />
-    </list>
+    <list default="true" id="38829ea5-a62f-4fe1-8dff-c5180a5d16ec" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/market/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="281" column="43" lean-forward="true" selection-start-line="281" selection-start-column="43" selection-end-line="281" selection-end-column="43" />
+              <caret line="281" column="43" lean-forward="false" selection-start-line="281" selection-start-column="43" selection-end-line="281" selection-end-column="43" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#320#536#0" expanded="false" />
@@ -188,7 +176,7 @@
         <entry file="file://$PROJECT_DIR$/market/templates/buyer_homepage.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="61" column="24" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+              <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -465,7 +453,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39889959" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39889959" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -799,7 +787,7 @@
     <entry file="file://$PROJECT_DIR$/market/templates/buyer_homepage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="61" column="24" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+          <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -807,7 +795,7 @@
     <entry file="file://$PROJECT_DIR$/market/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="281" column="43" lean-forward="true" selection-start-line="281" selection-start-column="43" selection-end-line="281" selection-end-column="43" />
+          <caret line="281" column="43" lean-forward="false" selection-start-line="281" selection-start-column="43" selection-end-line="281" selection-end-column="43" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#320#536#0" expanded="false" />
